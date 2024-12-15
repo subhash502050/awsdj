@@ -8,7 +8,7 @@ urlpatterns = [
     path('cart/', views.shop_cart, name = 'cart'),
     path('upload/', views.upload, name = 'upload'),
     path('uploads/',views.upload_data, name='uploads'),
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # Serve media files during development (only works if DEBUG=True)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

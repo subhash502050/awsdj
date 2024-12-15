@@ -1,0 +1,15 @@
+{% extends 'components/base.html' %}
+
+{% block content %}
+
+<div class="container pt-3 pb-3">
+<form action="" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="container-sm pt-3">
+    <input type="submit" class="form-control btn btn-primary">
+        </div>
+    </form>
+</div>
+{% endblock content %}
+

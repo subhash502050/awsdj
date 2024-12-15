@@ -1,0 +1,64 @@
+{% extends 'components/base.html' %}
+{% load  static %}
+{% block content %}
+
+<div class="container pt-3 pb-3">
+{% if articles %}
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in articles %}
+    <tr>
+      <td>{{ article.title }}</td>
+      <td>{{ article.description }}</td>
+      <td> <img src="media/{{article.picture}}" width="100" height="100" class="img"></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<div class="container">
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    
+    {% for article in articles %}
+    <li class="page-item"><a class="page-link" href="/?id={{ article.id | add:1}}">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="/?id={{article.id}}">{{ article.id }}</a></li>
+    <li class="page-item"><a class="page-link" href="/?id={{ article.id }}">Next</a></li>
+    {% endfor %}
+    
+  </ul>
+</nav>
+</div>
+{% else %}
+<p> No Data Found </p>
+{% endif %}
+
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for customer in customers %}
+      <tr>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.age }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %}
+
